@@ -1,0 +1,4 @@
+# CineBook — Smart Movie Ticket Booking System
+# Python 3.10+ Dependencies
+
+Pillow>=10.0.0

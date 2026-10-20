@@ -1,0 +1,349 @@
+{
+  "version": "2.0",
+  "total_movies": 20,
+  "posters_acquired": 20,
+  "generated_at": "2026-10-19 14:13:49",
+  "media_license_notice": "Promotional theatrical movie posters used for educational, non-commercial software demonstration under fair use.",
+  "posters": [
+    {
+      "movie_id": 1,
+      "title": "RRR",
+      "industry": "Telugu Cinema",
+      "language": "Telugu",
+      "release_year": 2022,
+      "local_path": "assets/posters/rrr.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/en/d/d7/RRR_Poster.jpg",
+      "source_provenance": "Official DVV Entertainment theatrical release poster / English Wikipedia Non-Free Content",
+      "status": "AUTHENTIC_POSTER_ACQUIRED",
+      "dimensions": [
+        257,
+        388
+      ],
+      "aspect_ratio": 1.51,
+      "file_size_bytes": 40549
+    },
+    {
+      "movie_id": 2,
+      "title": "Baahubali 2: The Conclusion",
+      "industry": "Telugu Cinema",
+      "language": "Telugu",
+      "release_year": 2017,
+      "local_path": "assets/posters/baahubali_2.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/en/9/93/Baahubali_2_The_Conclusion_poster.jpg",
+      "source_provenance": "Official Arka Media Works theatrical release poster / English Wikipedia Non-Free Content",
+      "status": "AUTHENTIC_POSTER_ACQUIRED",
+      "dimensions": [
+        258,
+        386
+      ],
+      "aspect_ratio": 1.5,
+      "file_size_bytes": 41442
+    },
+    {
+      "movie_id": 3,
+      "title": "Pushpa 2: The Rule",
+      "industry": "Telugu Cinema",
+      "language": "Telugu",
+      "release_year": 2024,
+      "local_path": "assets/posters/pushpa_2.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/en/1/11/Pushpa_2-_The_Rule.jpg",
+      "source_provenance": "Official Mythri Movie Makers theatrical release poster / English Wikipedia Non-Free Content",
+      "status": "AUTHENTIC_POSTER_ACQUIRED",
+      "dimensions": [
+        242,
+        412
+      ],
+      "aspect_ratio": 1.7,
+      "file_size_bytes": 31978
+    },
+    {
+      "movie_id": 4,
+      "title": "Kalki 2898 AD",
+      "industry": "Telugu Cinema",
+      "language": "Telugu",
+      "release_year": 2024,
+      "local_path": "assets/posters/kalki_2898_ad.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/en/4/4c/Kalki_2898_AD.jpg",
+      "source_provenance": "Official Vyjayanthi Movies theatrical release poster / English Wikipedia Non-Free Content",
+      "status": "AUTHENTIC_POSTER_ACQUIRED",
+      "dimensions": [
+        255,
+        393
+      ],
+      "aspect_ratio": 1.54,
+      "file_size_bytes": 36191
+    },
+    {
+      "movie_id": 5,
+      "title": "Hanu-Man",
+      "industry": "Telugu Cinema",
+      "language": "Telugu",
+      "release_year": 2024,
+      "local_path": "assets/posters/hanu_man.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/en/b/bb/Hanu_Man_film_Release_poster.jpeg",
+      "source_provenance": "Official Primeshow Entertainment theatrical release poster / English Wikipedia Non-Free Content",
+      "status": "AUTHENTIC_POSTER_ACQUIRED",
+      "dimensions": [
+        262,
+        381
+      ],
+      "aspect_ratio": 1.45,
+      "file_size_bytes": 36505
+    },
+    {
+      "movie_id": 6,
+      "title": "Leo: Bloody Sweet",
+      "industry": "Tamil Cinema",
+      "language": "Tamil",
+      "release_year": 2023,
+      "local_path": "assets/posters/leo.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/en/7/75/Leo_%282023_Indian_film%29.jpg",
+      "source_provenance": "Official Seven Screen Studio theatrical release poster / English Wikipedia Non-Free Content",
+      "status": "AUTHENTIC_POSTER_ACQUIRED",
+      "dimensions": [
+        250,
+        375
+      ],
+      "aspect_ratio": 1.5,
+      "file_size_bytes": 48879
+    },
+    {
+      "movie_id": 7,
+      "title": "Vikram: Hitlist",
+      "industry": "Tamil Cinema",
+      "language": "Tamil",
+      "release_year": 2022,
+      "local_path": "assets/posters/vikram.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/en/9/93/Vikram_2022_poster.jpg",
+      "source_provenance": "Official Raaj Kamal Films International theatrical release poster / English Wikipedia Non-Free Content",
+      "status": "AUTHENTIC_POSTER_ACQUIRED",
+      "dimensions": [
+        250,
+        380
+      ],
+      "aspect_ratio": 1.52,
+      "file_size_bytes": 54202
+    },
+    {
+      "movie_id": 8,
+      "title": "Jailer",
+      "industry": "Tamil Cinema",
+      "language": "Tamil",
+      "release_year": 2023,
+      "local_path": "assets/posters/jailer.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/en/c/cb/Jailer_2023_Tamil_film_poster.jpg",
+      "source_provenance": "Official Sun Pictures theatrical release poster / English Wikipedia Non-Free Content",
+      "status": "AUTHENTIC_POSTER_ACQUIRED",
+      "dimensions": [
+        252,
+        395
+      ],
+      "aspect_ratio": 1.57,
+      "file_size_bytes": 30243
+    },
+    {
+      "movie_id": 9,
+      "title": "Ponniyin Selvan: Part 1",
+      "industry": "Tamil Cinema",
+      "language": "Tamil",
+      "release_year": 2022,
+      "local_path": "assets/posters/ponniyin_selvan_1.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/en/c/c3/Ponniyin_Selvan_I.jpg",
+      "source_provenance": "Official Madras Talkies & Lyca Productions theatrical release poster / English Wikipedia Non-Free Content",
+      "status": "AUTHENTIC_POSTER_ACQUIRED",
+      "dimensions": [
+        220,
+        331
+      ],
+      "aspect_ratio": 1.5,
+      "file_size_bytes": 45927
+    },
+    {
+      "movie_id": 10,
+      "title": "Jawan",
+      "industry": "Hindi / Bollywood",
+      "language": "Hindi",
+      "release_year": 2023,
+      "local_path": "assets/posters/jawan.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/en/3/39/Jawan_film_poster.jpg",
+      "source_provenance": "Official Red Chillies Entertainment theatrical release poster / English Wikipedia Non-Free Content",
+      "status": "AUTHENTIC_POSTER_ACQUIRED",
+      "dimensions": [
+        283,
+        354
+      ],
+      "aspect_ratio": 1.25,
+      "file_size_bytes": 40148
+    },
+    {
+      "movie_id": 11,
+      "title": "12th Fail",
+      "industry": "Hindi / Bollywood",
+      "language": "Hindi",
+      "release_year": 2023,
+      "local_path": "assets/posters/12th_fail.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/en/f/f2/12th_Fail_poster.jpeg",
+      "source_provenance": "Official Vinod Chopra Films theatrical release poster / English Wikipedia Non-Free Content",
+      "status": "AUTHENTIC_POSTER_ACQUIRED",
+      "dimensions": [
+        282,
+        353
+      ],
+      "aspect_ratio": 1.25,
+      "file_size_bytes": 39579
+    },
+    {
+      "movie_id": 12,
+      "title": "Dangal",
+      "industry": "Hindi / Bollywood",
+      "language": "Hindi",
+      "release_year": 2016,
+      "local_path": "assets/posters/dangal.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/en/9/99/Dangal_Poster.jpg",
+      "source_provenance": "Official Aamir Khan Productions & Disney theatrical release poster / English Wikipedia Non-Free Content",
+      "status": "AUTHENTIC_POSTER_ACQUIRED",
+      "dimensions": [
+        262,
+        379
+      ],
+      "aspect_ratio": 1.45,
+      "file_size_bytes": 36315
+    },
+    {
+      "movie_id": 13,
+      "title": "Stree 2: Sarkate Ka Aatank",
+      "industry": "Hindi / Bollywood",
+      "language": "Hindi",
+      "release_year": 2024,
+      "local_path": "assets/posters/stree_2.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/en/a/a1/Stree_2.jpg",
+      "source_provenance": "Official Maddock Films & Jio Studios theatrical release poster / English Wikipedia Non-Free Content",
+      "status": "AUTHENTIC_POSTER_ACQUIRED",
+      "dimensions": [
+        283,
+        354
+      ],
+      "aspect_ratio": 1.25,
+      "file_size_bytes": 47939
+    },
+    {
+      "movie_id": 14,
+      "title": "Manjummel Boys",
+      "industry": "Malayalam Cinema",
+      "language": "Malayalam",
+      "release_year": 2024,
+      "local_path": "assets/posters/manjummel_boys.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/en/9/99/Manjummel_Boys_poster.jpg",
+      "source_provenance": "Official Parava Films theatrical release poster / English Wikipedia Non-Free Content",
+      "status": "AUTHENTIC_POSTER_ACQUIRED",
+      "dimensions": [
+        282,
+        353
+      ],
+      "aspect_ratio": 1.25,
+      "file_size_bytes": 41520
+    },
+    {
+      "movie_id": 15,
+      "title": "Aavesham",
+      "industry": "Malayalam Cinema",
+      "language": "Malayalam",
+      "release_year": 2024,
+      "local_path": "assets/posters/aavesham.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/en/d/d1/Aavesham.jpg",
+      "source_provenance": "Official Anwar Rasheed Entertainments & Fahadh Faasil and Friends theatrical poster / English Wikipedia Non-Free Content",
+      "status": "AUTHENTIC_POSTER_ACQUIRED",
+      "dimensions": [
+        280,
+        356
+      ],
+      "aspect_ratio": 1.27,
+      "file_size_bytes": 47498
+    },
+    {
+      "movie_id": 16,
+      "title": "Lucifer",
+      "industry": "Malayalam Cinema",
+      "language": "Malayalam",
+      "release_year": 2019,
+      "local_path": "assets/posters/lucifer.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/en/c/c2/Lucifer_film_poster.jpg",
+      "source_provenance": "Official Aashirvad Cinemas theatrical release poster / English Wikipedia Non-Free Content",
+      "status": "AUTHENTIC_POSTER_ACQUIRED",
+      "dimensions": [
+        258,
+        344
+      ],
+      "aspect_ratio": 1.33,
+      "file_size_bytes": 39912
+    },
+    {
+      "movie_id": 17,
+      "title": "K.G.F: Chapter 2",
+      "industry": "Kannada Cinema",
+      "language": "Kannada",
+      "release_year": 2022,
+      "local_path": "assets/posters/kgf_chapter_2.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/en/d/d0/K.G.F_Chapter_2.jpg",
+      "source_provenance": "Official Hombale Films theatrical release poster / English Wikipedia Non-Free Content",
+      "status": "AUTHENTIC_POSTER_ACQUIRED",
+      "dimensions": [
+        266,
+        375
+      ],
+      "aspect_ratio": 1.41,
+      "file_size_bytes": 41829
+    },
+    {
+      "movie_id": 18,
+      "title": "Kantara: A Legend",
+      "industry": "Kannada Cinema",
+      "language": "Kannada",
+      "release_year": 2022,
+      "local_path": "assets/posters/kantara.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/en/8/84/Kantara_poster.jpeg",
+      "source_provenance": "Official Hombale Films theatrical release poster / English Wikipedia Non-Free Content",
+      "status": "AUTHENTIC_POSTER_ACQUIRED",
+      "dimensions": [
+        264,
+        378
+      ],
+      "aspect_ratio": 1.43,
+      "file_size_bytes": 47945
+    },
+    {
+      "movie_id": 19,
+      "title": "777 Charlie",
+      "industry": "Kannada Cinema",
+      "language": "Kannada",
+      "release_year": 2022,
+      "local_path": "assets/posters/777_charlie.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/en/1/19/777_Charlie_official_poster.jpg",
+      "source_provenance": "Official Paramvah Studios theatrical release poster / English Wikipedia Non-Free Content",
+      "status": "AUTHENTIC_POSTER_ACQUIRED",
+      "dimensions": [
+        266,
+        373
+      ],
+      "aspect_ratio": 1.4,
+      "file_size_bytes": 38364
+    },
+    {
+      "movie_id": 20,
+      "title": "Kantara: Chapter 1 (Prequel)",
+      "industry": "Kannada Cinema",
+      "language": "Kannada",
+      "release_year": 2025,
+      "local_path": "assets/posters/kantara_prequel.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/en/6/69/Kantara-_Chapter_1_poster.jpg",
+      "source_provenance": "Official Hombale Films first-look theatrical teaser poster / English Wikipedia Non-Free Content",
+      "status": "AUTHENTIC_POSTER_ACQUIRED",
+      "dimensions": [
+        264,
+        378
+      ],
+      "aspect_ratio": 1.43,
+      "file_size_bytes": 53382
+    }
+  ]
+}
