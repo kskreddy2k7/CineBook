@@ -109,7 +109,6 @@ TIKENTER/
 ├── run_tests.py                # Comprehensive automated test suite runner
 ├── requirements.txt            # Python dependencies (Pillow)
 ├── README.md                   # Full documentation & setup guide
-├── VIVA_PREPARATION.md         # Complete viva script & 25 Q&A cheat sheet
 ├── assets/
 │   ├── posters/                # 20 Authentic theatrical posters (.jpg)
 │   │   └── posters_manifest.json # Image manifest (provenance, URLs, dimensions)
