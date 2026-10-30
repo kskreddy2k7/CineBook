@@ -37,11 +37,31 @@ class TestRedesignVerification(unittest.TestCase):
             cls.root = tk.Tk()
             cls.root.withdraw()
             cls.app = CineBookApp(cls.root)
+            cls._clean_test_bookings()
         except tk.TclError as e:
             raise unittest.SkipTest(f"Display unavailable: {e}")
 
     @classmethod
+    def _clean_test_bookings(cls):
+        try:
+            conn = cls.app.db.get_connection()
+            with conn:
+                cur = conn.cursor()
+                cur.execute("SELECT id FROM bookings WHERE customer_name = 'Devashish Test';")
+                ids = [r["id"] for r in cur.fetchall()]
+                for b_id in ids:
+                    try:
+                        cls.app.db.cancel_booking(b_id)
+                    except Exception:
+                        pass
+                cur.execute("DELETE FROM bookings WHERE customer_name = 'Devashish Test';")
+                cur.execute("DELETE FROM booking_seats WHERE booking_id NOT IN (SELECT id FROM bookings);")
+        except Exception:
+            pass
+
+    @classmethod
     def tearDownClass(cls):
+        cls._clean_test_bookings()
         if hasattr(cls, "root"):
             try:
                 cls.root.destroy()
@@ -324,7 +344,12 @@ class TestRedesignVerification(unittest.TestCase):
         self.assertEqual(SEAT_SELECTED_BG, "#10B981", "Selected seats must use emerald green")
 
         movie = self.app.db.get_all_movies()[0]
-        show = self.app.db.get_shows_for_movie(movie.id)[0]
+        shows = self.app.db.get_shows_for_movie(movie.id)
+        # Select a show with at least 7 available seats
+        show = next(
+            (s for s in shows if sum(1 for st in self.app.db.get_seats_for_show(s.id) if st.status == "AVAILABLE") >= 7),
+            shows[0]
+        )
         self.app.show_seat_selection(show)
         seat_view = self.app.current_view
         self.assertIsInstance(seat_view, SeatView)

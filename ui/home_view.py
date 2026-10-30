@@ -141,13 +141,14 @@ class HomeView(tk.Frame):
         available_w = max(280, w - 2 * pad - 18)
 
         # 3. Adaptive column calculation matching BookMyShow breakpoint targets
-        if available_w >= 1550:
+        container_w = w - 90
+        if container_w >= 1050:
             cols = 5
-        elif available_w >= 1150:
+        elif container_w >= 850:
             cols = 4
-        elif available_w >= 780:
+        elif container_w >= 600:
             cols = 3
-        elif available_w >= 500:
+        elif container_w >= 400:
             cols = 2
         else:
             cols = 1
@@ -156,7 +157,7 @@ class HomeView(tk.Frame):
         gap = 18  # Consistent 18 px inter-card gap
 
         raw_card_w = (available_w - (cols - 1) * gap) // cols
-        card_w = max(260, min(420, raw_card_w))
+        card_w = max(180, min(420, raw_card_w))
         poster_w = card_w
         image_h = int(poster_w * 1.5)  # Strict 2:3 portrait ratio
         strip_h = 44

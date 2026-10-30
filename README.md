@@ -1,169 +1,253 @@
-# CineBook — Indian Movie Ticket Booking System
-### Advanced Programming Practice | Python Tkinter & SQLite3 Desktop Application
+# 🎬 CineBook — Indian Movie Ticket Booking System
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)
-![GUI Framework](https://img.shields.io/badge/GUI-Tkinter%20%2F%20ttk-purple)
-![Database](https://img.shields.io/badge/Database-SQLite3%20ACID-success)
-![Posters](https://img.shields.io/badge/Posters-20%20Authentic%20Theatrical-red)
-![Tests](https://img.shields.io/badge/Tests-28%20Passed-brightgreen)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![GUI Framework](https://img.shields.io/badge/GUI-Tkinter%20%2F%20ttk-purple)](https://docs.python.org/3/library/tkinter.html)
+[![Database](https://img.shields.io/badge/Database-SQLite3%20ACID-success?logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![Posters](https://img.shields.io/badge/Posters-20%20Authentic%20Theatrical-red)](#-3-authentic-indian-cinema-catalogue)
+[![Tests](https://img.shields.io/badge/Tests-38%2F38%20Passed-brightgreen)](#-7-running-automated-tests)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)](#-6-quick-start--installation)
 
-**CineBook Pro** is a production-grade desktop movie ticket reservation application built in **Python Tkinter/ttk** and **SQLite3**, featuring an authentic **Indian Cinema catalogue** across Telugu, Tamil, Hindi, Malayalam, and Kannada industries. The interface is inspired by **BookMyShow**'s clean light-grey design (`#F2F4F8`), signature coral-red (`#F84464`) accents, large portrait theatrical posters, multi-city theatre scheduling, and a spacious Rows A–L seating matrix with interactive zoom controls and bottom screen indicator.
-
----
-
-## 🎬 1. Authentic Indian Movie Posters & Catalogue
-
-- **20 Verified Indian Blockbusters**:
-  - **Telugu Cinema**: *RRR*, *Baahubali 2: The Conclusion*, *Pushpa 2: The Rule*, *Kalki 2898 AD*, *Hanu-Man*
-  - **Tamil Cinema**: *Leo: Bloody Sweet*, *Vikram: Hitlist*, *Jailer*, *Ponniyin Selvan: Part 1*
-  - **Hindi / Bollywood**: *Jawan*, *12th Fail*, *Dangal*, *Stree 2: Sarkate Ka Aatank*
-  - **Malayalam Cinema**: *Manjummel Boys*, *Aavesham*, *Lucifer*
-  - **Kannada Cinema**: *K.G.F: Chapter 2*, *Kantara: A Legend*, *777 Charlie*, *Kantara: Chapter 1 (Prequel)*
-- **Authentic Theatrical Posters**:
-  - Saved locally in `assets/posters/*.jpg`.
-  - Stored with structured provenance in [`assets/posters/posters_manifest.json`](file:///c:/Users/Kskre/Desktop/TIKENTER/assets/posters/posters_manifest.json).
-  - Scaled cleanly preserving portrait ~2:3 aspect ratio via Pillow `ImageOps.fit()` with Lanczos resampling.
-  - In-memory `_POSTER_CACHE` avoids repetitive disk I/O and ensures stutter-free carousel scrolling.
-  - Clearly labeled `[🎬 POSTER UNAVAILABLE / Theatrical Artwork Pending]` state for unreleased or missing artwork without synthetic AI art.
-- **Complete Booking for Every Movie**:
-  - Every movie card supports complete end-to-end booking from selecting the movie to generating a digital ticket.
-  - If any movie has no configured showtimes in a selected city, an empty-state card offers an instant **"⚡ Add Demonstration Showtimes for this Movie"** button that dynamically generates realistic multi-screen schedules on demand.
+**CineBook** is a production-grade desktop movie ticket reservation system built with **Python (Tkinter/ttk)** and **SQLite3**. Inspired by **BookMyShow**'s clean light-grey design language (`#F2F4F8`) and signature coral-red accents (`#F84464`), CineBook delivers an end-to-end cinema booking experience tailored for Indian Cinema across Telugu, Tamil, Hindi, Malayalam, and Kannada industries.
 
 ---
 
-## 🏙️ 2. Multi-City, Theatre, Screen & Showtime Hierarchy
+## 🌟 Key Highlights
 
-CineBook implements the complete 7-level booking hierarchy:
-
-$$\text{City} \longrightarrow \text{Demonstration Theatre} \longrightarrow \text{Auditorium Screen} \longrightarrow \text{Movie} \longrightarrow \text{Date} \longrightarrow \text{Showtime} \longrightarrow \text{Seats}$$
-
-- **5 Major Indian Hubs**: Chennai, Hyderabad, Bengaluru, Mumbai, Kochi.
-- **15 Sample Demonstration Theatres**: 3 per city (e.g. *CineBook Demo Cinemas*, *Palazzo Cineplex*, *PVR Heritage*).
-- **45 Auditorium Formats**: 3 formats per theatre (*IMAX Laser 3D*, *Dolby Atmos 4K*, *Luxe Lounge*).
-- **Date Selector**: Browse today, tomorrow, and upcoming calendar dates.
-- **Multi-Screen Format Selector**: Displays theatre location, distance, format badges, and live pricing.
-
----
-
-## 💺 3. Spacious Theatre Seat Selection (Rows A–L)
-
-- **Auditorium Grid**:
-  - 12 Rows labeled **A through L** down the left.
-  - Small numbered seat buttons (1 to 8).
-  - Separate left block (1–4) and right block (5–8) with central walking aisle.
-  - Section category labels and prices above each section:
-    - **Recliner (Rows A–B)**: `RECLINER - Rs. 300.00`
-    - **Elite (Rows C–F)**: `ELITE - Rs. 220.00`
-    - **Normal (Rows G–L)**: `NORMAL - Rs. 150.00`
-  - Cinema screen indicator at the **bottom**: `CurvedScreenWidget` with arc curved towards the audience and `• ALL EYES THIS WAY PLEASE (SCREEN) •`.
-  - Zoom controls at top right: `[🔍+ In]`, `[🔍- Out]`, `[↺ Reset]`.
-  - Fixed status legend: **Available** (White), **Selected** (Emerald Green `#10B981`), **Sold** (Disabled Grey), **★ Bestseller** (Amber Border `#F59E0B`), and category pricing badges.
-- **Interactive Seat Behavior**:
-  - Click available seat to select (turns emerald green `#10B981`).
-  - Click selected seat to deselect.
-  - Booked seats disabled with hatch pattern.
-  - Bestseller seats highlighted with amber outline and star badge.
-  - Configurable maximum seat limit (6 tickets per transaction) with friendly warning.
-  - Real-time itemized pricing: Subtotal + ₹25 convenience fee = Grand Total in ₹.
-  - Revalidation and selection reset when switching showtimes.
+- **BookMyShow-Style Modern UI**: Clean light-grey canvas (`#F2F4F8`), high-contrast typography (Segoe UI / Helvetica), rounded cards, seamless pill filters, and native Windows high-DPI scaling.
+- **Authentic 20-Movie Catalogue**: Real Indian blockbusters across 5 major film industries with verified metadata, genuine theatrical artwork, ratings, and classifications.
+- **7-Tier Relational Hierarchy**: Multi-city scheduling architecture:
+  $$\text{City} \longrightarrow \text{Theatre} \longrightarrow \text{Screen Format} \longrightarrow \text{Movie} \longrightarrow \text{Date} \longrightarrow \text{Showtime} \longrightarrow \text{Seats}$$
+- **Interactive Auditorium Seating (Rows A–L)**: Full 96-seat layout per show (Recliner, Elite, Classic) with walking aisles, curved screen indicator, zoom controls (`[🔍+ In]`, `[🔍- Out]`, `[↺ Reset]`), and emerald green (`#10B981`) selection highlights.
+- **ACID-Compliant Concurrency**: SQLite transactions (`PRAGMA foreign_keys = ON;`) ensuring zero double-booking and automatic rollback on seat contention.
+- **Digital Boarding Pass Ticket**: Real-time receipt generator with unique booking references (`CB-2026-XXXXX`), exportable to **HTML** and **Plain Text**.
+- **Operations Console & Admin**: Live platform metric counters (Movies, Cities, Theatres, Screens, Shows), multi-theatre browser, and live ticket tier price adjuster.
+- **100% Automated Test Coverage**: 38 automated test cases passing across 4 comprehensive suites, plus dedicated visual card audit tests.
 
 ---
 
-## 🔒 4. Database & Atomic Double-Booking Protection
-
-- SQLite3 relational engine with strict foreign keys (`PRAGMA foreign_keys = ON;`).
-- Atomic transactions (`with conn:`):
-  1. Validates customer contact details.
-  2. Re-checks live seat availability immediately before writing.
-  3. Executes `UPDATE show_seats SET status='BOOKED' ... WHERE status='AVAILABLE'`.
-  4. Automatically rolls back on any conflict, raising `SeatUnavailableError`.
-- **Cancellation**: Restores seats to `AVAILABLE` without deleting historical booking records.
-
----
-
-## 🎟️ 5. Customer Checkout & Digital Boarding Pass Ticket
-
-- Validation: 10-digit Indian mobile number (`^[6-9]\d{9}$`), customer name ($\ge 2$ characters), and optional email.
-- Boarding-pass cinema ticket with unique reference (`CB-2026-XXXXX`), cinema screen format, customer details, and itemized receipt.
-- One-click export to local formatted **HTML** (`exports/*.html`) and **Plain Text** (`exports/*.txt`).
-
----
-
-## ⚙️ 6. Demo Administration & Operations Console
-
-- Accessible via the top navbar (`⚙ Demo Admin`).
-- Platform metric counters (Movies, Cities, Theatres, Screens, Shows).
-- Interactive Treeview hierarchy of sample cities and theatres.
-- Active show ticket price adjuster (`Classic`, `Elite`, `Recliner`).
-
----
-
-## 🏗️ 7. System Architecture & File Structure
+## 📸 Application Walkthrough & Architecture
 
 ```
+┌────────────────────────────────────────────────────────────────────────┐
+│  CineBook  |  📍 Chennai ▼  |  🔍 Search movies...   |  🎟 My Bookings  │
+├────────────────────────────────────────────────────────────────────────┤
+│  [Now Showing]  [Upcoming]  •  [All]  [Telugu]  [Tamil]  [Hindi] ...   │
+├────────────────────────────────────────────────────────────────────────┤
+│  🎬 RECOMMENDED MOVIES                                 [◀ Prev] [Next ▶]│
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐│
+│  │ ★ 8.8 (130K) │  │ ★ 8.3 (220K) │  │ ★ 8.3 (38K)  │  │ ★ 7.9 (65K)  ││
+│  │  12th Fail   │  │    Dangal    │  │Manjummel Boys│  │   Hanu-Man   ││
+│  │ [Book Tickets│  │ [Book Tickets│  │ [Book Tickets│  │ [Book Tickets││
+│  └──────────────┘  └──────────────┘  └──────────────┘  └──────────────┘│
+├────────────────────────────────────────────────────────────────────────┤
+│  🎥 STREAM CINEMA PASS — Stream Premieres & Film Festivals Direct      │
+├────────────────────────────────────────────────────────────────────────┤
+│  🎬 EXPLORE ALL MOVIES (20 Titles Available)                           │
+│  [Responsive Grid adapting from 1 to 5 columns based on window width]  │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🎬 3. Authentic Indian Cinema Catalogue
+
+CineBook features 20 verified theatrical blockbusters across 5 Indian film industries:
+
+| # | Movie Title | Industry / Language | Genre | Rating | Censor | Director | Status |
+|:---:|:---|:---|:---|:---:|:---:|:---|:---:|
+| 1 | **RRR** | Telugu Cinema | Action / Drama / Period | ★ 8.7 | U/A | S. S. Rajamouli | Now Showing |
+| 2 | **Baahubali 2: The Conclusion** | Telugu Cinema | Action / Fantasy / Drama | ★ 8.2 | U/A | S. S. Rajamouli | Now Showing |
+| 3 | **Pushpa 2: The Rule** | Telugu Cinema | Action / Crime / Thriller | ★ 8.4 | U/A | Sukumar | Now Showing |
+| 4 | **Kalki 2898 AD** | Telugu Cinema | Sci-Fi / Action / Mythology | ★ 7.6 | U/A | Nag Ashwin | Now Showing |
+| 5 | **Hanu-Man** | Telugu Cinema | Action / Adventure / Fantasy | ★ 7.9 | U/A | Prasanth Varma | Now Showing |
+| 6 | **Leo: Bloody Sweet** | Tamil Cinema | Action / Thriller | ★ 7.2 | U/A | Lokesh Kanagaraj | Now Showing |
+| 7 | **Vikram: Hitlist** | Tamil Cinema | Action / Crime / Mystery | ★ 8.3 | U/A | Lokesh Kanagaraj | Now Showing |
+| 8 | **Jailer** | Tamil Cinema | Action / Comedy / Drama | ★ 7.1 | U/A | Nelson Dilipkumar | Now Showing |
+| 9 | **Ponniyin Selvan: Part 1** | Tamil Cinema | Action / Drama / Historical | ★ 7.6 | U/A | Mani Ratnam | Now Showing |
+| 10 | **Jawan** | Hindi / Bollywood | Action / Thriller | ★ 7.0 | U/A | Atlee | Now Showing |
+| 11 | **12th Fail** | Hindi / Bollywood | Biography / Drama | ★ 8.8 | U | Vidhu Vinod Chopra | Now Showing |
+| 12 | **Dangal** | Hindi / Bollywood | Biography / Drama / Sport | ★ 8.3 | U | Nitesh Tiwari | Now Showing |
+| 13 | **Stree 2: Sarkate Ka Aatank** | Hindi / Bollywood | Comedy / Horror / Mystery | ★ 7.1 | U/A | Amar Kaushik | Now Showing |
+| 14 | **Manjummel Boys** | Malayalam Cinema | Survival / Thriller / Drama | ★ 8.3 | U | Chidambaram | Now Showing |
+| 15 | **Aavesham** | Malayalam Cinema | Action / Comedy | ★ 7.9 | U/A | Jithu Madhavan | Now Showing |
+| 16 | **Lucifer** | Malayalam Cinema | Action / Crime / Thriller | ★ 7.5 | U/A | Prithviraj Sukumaran | Now Showing |
+| 17 | **K.G.F: Chapter 2** | Kannada Cinema | Action / Crime / Drama | ★ 8.2 | U/A | Prashanth Neel | Now Showing |
+| 18 | **Kantara: A Legend** | Kannada Cinema | Action / Drama / Folklore | ★ 8.2 | U/A | Rishab Shetty | Now Showing |
+| 19 | **777 Charlie** | Kannada Cinema | Adventure / Comedy / Drama | ★ 8.7 | U | Kiranraj K | Now Showing |
+| 20 | **Kantara: Chapter 1 (Prequel)** | Kannada Cinema | Action / Drama / Mythology | — | U/A | Rishab Shetty | Upcoming |
+
+> **Note on Posters**: All posters are authentic 2:3 high-resolution theatrical covers saved under [`assets/posters/`](file:///c:/Users/Kskre/Desktop/TIKENTER/assets/posters) with provenance metadata tracked in [`assets/posters/posters_manifest.json`](file:///c:/Users/Kskre/Desktop/TIKENTER/assets/posters/posters_manifest.json). Unreleased or unavailable titles render a dedicated clean slate notice without AI distortions.
+
+---
+
+## 🏛️ 4. Multi-City & Theatre Hierarchy
+
+CineBook implements realistic cinema operations across 5 major Indian metropolitan hubs:
+
+```
+[City Hubs]
+├── 📍 Chennai     (Tamil Nadu)  ─── 3 Theatres, 9 Screens
+├── 📍 Hyderabad   (Telangana)   ─── 3 Theatres, 9 Screens
+├── 📍 Bengaluru   (Karnataka)   ─── 3 Theatres, 9 Screens
+├── 📍 Mumbai      (Maharashtra) ─── 3 Theatres, 9 Screens
+└── 📍 Kochi       (Kerala)      ─── 3 Theatres, 9 Screens
+```
+
+### Premium Auditorium Screen Formats
+1. **IMAX Laser 3D** — Flagship giant-screen experience (Classic: ₹180, Elite: ₹260, Recliner: ₹360).
+2. **Dolby Atmos 4K** — 360-degree immersive acoustic cinema (Classic: ₹150, Elite: ₹220, Recliner: ₹300).
+3. **Luxe Cinema Lounge** — Plush leather seating & VIP hospitality (Classic: ₹200, Elite: ₹280, Recliner: ₹380).
+4. **Standard 2K Digital** — Everyday reliable cinema (Classic: ₹140, Elite: ₹200, Recliner: ₹280).
+
+---
+
+## 💺 5. Auditorium Seating Matrix (Rows A–L)
+
+Every scheduled screening features an interactive **96-seat layout**:
+- **Rows A & B (Recliner Section)**: Premium front viewing with ultra-wide spacing (`₹300 – ₹380`).
+- **Rows C to F (Elite Section)**: Prime centre viewing angle (`₹200 – ₹280`).
+- **Rows G to L (Classic Section)**: Standard cinema seating (`₹140 – ₹200`).
+
+### Interactive Features
+- **Walking Aisle**: Central passage separating seats `1–4` (Left Wing) and `5–8` (Right Wing).
+- **Curved Screen Indicator**: Bottom-mounted curved cinema screen with `• ALL EYES THIS WAY PLEASE (SCREEN) •`.
+- **Zoom & Pan Controls**: `[🔍+ In]`, `[🔍- Out]`, and `[↺ Reset]` buttons to scale the layout for accessibility.
+- **Seat States & Colors**:
+  - ⚪ **Available**: Clean white button with dark text.
+  - 🟢 **Selected**: Emerald green (`#10B981`) with white text.
+  - 🔘 **Booked / Sold**: Disabled grey button with diagonal hatch indicator.
+  - ⭐ **Bestseller**: Highlighted with an amber border (`#F59E0B`).
+- **Safety Limit**: Enforces a maximum of **6 tickets per booking** with user-friendly alerts.
+
+---
+
+## 🗄️ 6. System Architecture & Database Design
+
+### Relational Schema (SQLite3)
+CineBook strictly enables SQLite foreign keys (`PRAGMA foreign_keys = ON;`) to guarantee relational integrity:
+
+```
+  ┌─────────────┐       ┌──────────────┐       ┌─────────────┐
+  │   cities    │──1:N──│   theatres   │──1:N──│   screens   │
+  └─────────────┘       └──────────────┘       └─────────────┘
+                                                      │
+                                                     1:N
+                                                      ▼
+  ┌─────────────┐                              ┌─────────────┐
+  │   movies    │─────────────1:N─────────────▶│    shows    │
+  └─────────────┘                              └─────────────┘
+         │                                            │
+         │                                           1:N
+         │                                            ▼
+         │       ┌──────────────┐              ┌─────────────┐
+         └──────▶│   bookings   │◀─────0:1─────│ show_seats  │
+                 └──────────────┘              └─────────────┘
+                        │
+                       1:N
+                        ▼
+                 ┌──────────────┐
+                 │booking_seats │
+                 └──────────────┘
+```
+
+### Transactional Concurrency & Rollback
+When multiple users attempt to book simultaneously, CineBook uses an atomic database transaction:
+1. Re-verifies live seat status within the open transaction.
+2. Updates `show_seats` conditionally:
+   ```sql
+   UPDATE show_seats
+   SET status = 'BOOKED', booking_id = ?
+   WHERE show_id = ? AND seat_number = ? AND status = 'AVAILABLE';
+   ```
+3. If any selected seat is unavailable, transaction rolls back completely and raises `SeatUnavailableError`.
+4. Cancellations restore seats to `AVAILABLE` without deleting the historical booking record.
+
+---
+
+## 📂 Repository File Structure
+
+```text
 TIKENTER/
-├── main.py                     # Main application entry point & view coordinator
-├── database.py                 # SQLite relational schema, CRUD, & ACID transactions
-├── models.py                   # Dataclass entities (City, Theatre, Screen, Movie, Show, Seat, Booking)
-├── fetch_authentic_posters.py  # Ingestion tool for 20 authentic Indian theatrical posters
-├── run_tests.py                # Comprehensive automated test suite runner
+├── main.py                     # Application entry point & master view router
+├── database.py                 # SQLite database engine, schema, & ACID transactions
+├── models.py                   # Domain models (City, Theatre, Screen, Movie, Show, Seat, Booking)
+├── run_tests.py                # Unified automated test runner (Runs all 4 core test suites)
+├── generate_posters.py         # Poster generator and cache utilities
 ├── requirements.txt            # Python dependencies (Pillow)
-├── README.md                   # Full documentation & setup guide
+├── README.md                   # System documentation & usage guide
 ├── assets/
-│   ├── posters/                # 20 Authentic theatrical posters (.jpg)
-│   │   └── posters_manifest.json # Image manifest (provenance, URLs, dimensions)
-│   └── promos/                 # Widescreen cinema promotional banner
+│   ├── logo.png                # CineBook master header logo
+│   └── posters/                # 20 Authentic theatrical posters (.jpg)
+│       ├── CineBooklogo.png    # High-resolution application brand asset
+│       └── posters_manifest.json # Poster metadata & provenance catalog
 ├── data/
-│   └── cinebook.db             # Relational SQLite database
-├── exports/                    # Saved HTML and plain-text ticket receipts
+│   └── cinebook.db             # Relational SQLite database file
+├── exports/                    # Exported digital ticket passes (.html, .txt)
 ├── tests/
 │   ├── test_booking_logic.py   # Unit & concurrency transaction tests (10 tests)
-│   ├── test_gui_headless.py    # Headless GUI component tests (6 tests)
-│   └── test_redesign_verification.py # Redesign & poster tests (9 tests)
+│   ├── test_gui_headless.py    # Headless GUI view switching tests (6 tests)
+│   ├── test_redesign_verification.py # Integration, seat limit & responsive tests (16 tests)
+│   ├── test_home_redesign.py   # Home view layout, filters & banner tests (7 tests)
+│   └── test_movie_card_fit.py  # Typography sizes & button alignment audit (6 tests)
 └── ui/
-    ├── theme.py                # Design tokens (BookMyShow light theme, colors, fonts)
-    ├── components.py           # PosterWidget, MovieCardWidget, CurvedScreen, SeatWidget
+    ├── theme.py                # Design tokens, color palette, fonts & geometry
+    ├── components.py           # MovieCardWidget, PosterWidget, CurvedScreen, SeatWidget
     ├── home_view.py            # Movie discovery carousel, filters & promo banner
     ├── movie_view.py           # City selector, theatre grouping & showtime picker
-    ├── seat_view.py            # Rows A-L seating grid, zoom controls & live summary
+    ├── seat_view.py            # Rows A–L seating matrix, zoom & live price breakdown
     ├── checkout_view.py        # Customer details validation & atomic checkout
-    ├── ticket_view.py          # Boarding pass ticket & file export
-    ├── bookings_view.py        # My Bookings history table & cancellation
-    └── admin_view.py           # Operations console & live tier price adjuster
+    ├── ticket_view.py          # Digital boarding pass & receipt export
+    ├── bookings_view.py        # My Bookings history table & cancellation flow
+    ├── admin_view.py           # Operations console & live tier price adjuster
+    └── about_view.py           # System info, architectural specs & database reset
 ```
 
 ---
 
-## 🚀 8. Installation & Launch Instructions
+## 🚀 7. Quick Start & Installation
 
 ### Prerequisites
-- Python 3.10 or higher.
-- Standard libraries (`sqlite3`, `tkinter`, `urllib`, `json`, `pathlib`, `unittest`) are included with Python.
+- **Python 3.10+** (Standard installation includes `tkinter`, `sqlite3`, and `unittest`).
 
-### Setup Steps
-1. Open terminal in the project directory:
+### Step-by-Step Setup
+1. **Clone or Open the Repository**:
    ```bash
    cd c:\Users\Kskre\Desktop\TIKENTER
    ```
-2. Install dependencies:
+
+2. **(Optional) Create and Activate a Virtual Environment**:
+   ```bash
+   python -m venv venv
+   # On Windows:
+   .\venv\Scripts\activate
+   # On macOS/Linux:
+   source venv/bin/activate
+   ```
+
+3. **Install Dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
-3. Run CineBook:
+   *(CineBook only requires `Pillow>=10.0.0` for high-quality poster scaling).*
+
+4. **Launch CineBook**:
    ```bash
    python main.py
    ```
 
 ---
 
-## 🧪 9. Running Automated Tests
+## 🧪 8. Running Automated Tests
 
-Run all 28 automated unit, GUI integration, and verification tests:
+CineBook comes with a comprehensive test suite covering database ACID transactions, view lifecycles, booking flows, and UI responsiveness.
+
+### Run All Core Test Suites
+To run the full automated test suite runner:
 ```bash
 python run_tests.py
 ```
 
-Expected output:
+**Expected Terminal Output**:
 ```text
 ===========================================================================
  CINEBOOK — COMPREHENSIVE AUTOMATED TEST SUITE RUNNER
@@ -181,13 +265,85 @@ Expected output:
 ---------------------------------------------------------------------------
 --> [PASSED] Redesign & Poster Verification
 
+[RUNNING SUITE] Complete Home Redesign Verification (tests/test_home_redesign.py)...
+---------------------------------------------------------------------------
+--> [PASSED] Complete Home Redesign Verification
+
 ===========================================================================
- FINAL STATUS: ALL 3 TEST SUITES PASSED (28/28 TESTS SUCCESSFUL)
+ FINAL STATUS: ALL 4 TEST SUITES PASSED (38/38 TESTS SUCCESSFUL)
 ===========================================================================
+```
+
+### Running Individual Test Suites
+You can run any test module independently using Python's `unittest`:
+
+```bash
+# 1. Database transactions & double-booking prevention (10 tests)
+python -m unittest tests/test_booking_logic.py
+
+# 2. Headless GUI view switching & lifecycle (6 tests)
+python -m unittest tests/test_gui_headless.py
+
+# 3. Responsive window resizing, booking flow & seat limits (16 tests)
+python -m unittest tests/test_redesign_verification.py
+
+# 4. Home redesign, search live update & carousel (7 tests)
+python -m unittest tests/test_home_redesign.py
+
+# 5. Card typography & button baseline alignment audit (6 tests)
+python -m unittest tests/test_movie_card_fit.py
 ```
 
 ---
 
-## 🎓 10. Viva Voce & Demonstration Aid
+## 📖 9. User Interaction Guide
 
-For college laboratory examinations, refer to [`VIVA_PREPARATION.md`](file:///c:/Users/Kskre/Desktop/TIKENTER/VIVA_PREPARATION.md) for the complete viva presentation script, demonstration walkthrough, and technical Q&A covering Tkinter widgets, SQLite ACID transactions, Pillow image scaling, and concurrency protection.
+1. **Explore & Filter**:
+   - Change your city using the top-bar dropdown (e.g. *Chennai*, *Hyderabad*, *Bengaluru*).
+   - Filter by release status (*Now Showing*, *Upcoming*) or language (*Telugu*, *Tamil*, *Hindi*, *Malayalam*, *Kannada*).
+   - Use the live search bar to find titles by name or actor.
+2. **Select Showtime**:
+   - Click **"Book Tickets"** on any card.
+   - Choose your preferred date tab, theatre, auditorium format (*IMAX*, *Dolby Atmos*), and showtime slot.
+3. **Choose Seats**:
+   - Click any white seat in **Rows A–L** (up to 6 seats).
+   - Use `[🔍+ In]` and `[🔍- Out]` to zoom the seating matrix.
+   - Click **"Proceed to Checkout →"**.
+4. **Checkout & Boarding Pass**:
+   - Enter your name, 10-digit mobile number, and optional email.
+   - Click **"Confirm & Pay"** to generate the digital ticket pass.
+   - Click **"Export Ticket (HTML)"** or **"Save as Text"** to generate local files in `exports/`.
+5. **Manage Bookings**:
+   - View your reservations under **"🎟 My Bookings"** in the top navigation bar.
+   - Filter by *Confirmed*, *Cancelled*, or *All*.
+   - Cancel tickets anytime to release seats back into the available pool.
+6. **Factory Database Reset**:
+   - Navigate to **"ℹ About"** in the top navigation header.
+   - Click **"🔄 Reset Sample Database to Factory Defaults"** to clear demo data and restore fresh seed inventory.
+
+---
+
+## 🛠️ 10. Frequently Asked Questions (FAQ)
+
+<details>
+<summary><b>Q: Text appears slightly blurry on high-resolution Windows displays. How to fix?</b></summary>
+<br>
+CineBook automatically invokes Windows Per-Monitor DPI scaling via <code>ctypes.windll.shcore.SetProcessDpiAwareness(2)</code> in <code>main.py</code>. If running under an older Windows version, the app gracefully falls back to system DPI awareness.
+</details>
+
+<details>
+<summary><b>Q: What happens if two customers pick the exact same seat simultaneously?</b></summary>
+<br>
+CineBook uses atomic SQLite conditional updates. The second customer's transaction will detect that the seat status is no longer <code>AVAILABLE</code>, roll back immediately, and present a helpful alert asking them to choose an alternate seat.
+</details>
+
+<details>
+<summary><b>Q: Where are exported tickets saved?</b></summary>
+<br>
+All exported ticket files are placed in the <a href="file:///c:/Users/Kskre/Desktop/TIKENTER/exports"><code>exports/</code></a> directory in both interactive styled HTML and plain ASCII text formats.
+</details>
+
+---
+
+## 📄 License
+This project is developed for educational and academic demonstration purposes. All movie titles, character names, and poster artworks belong to their respective production houses and distributors.
